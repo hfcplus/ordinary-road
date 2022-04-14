@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<h1>用户登录</h1>
+<form  method="post" class="smart-green" th:action="@{/user/login}">
+    <label><span>账号:</span>
+        <input id="title" type="text" name="username"  />
+    </label>
+    <label>
+        <span>密码:</span>
+        <input id="keywords" type="text" name="password"  />
+    </label>
+
+    <label><span>&nbsp;</span><input type="submit" class="button" value="登录" /></label>
+</form>
+
+
+<a th:href="@{/toRegister}">注册</a>
+</body>
+</html>

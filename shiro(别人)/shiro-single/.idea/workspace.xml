@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1ff0937-300f-4b40-8dc7-47d4edafcd97" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../知识点总结.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Maven\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../Maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1pPOhnLTfSaJzJx5KdmgmVTuHsS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shiro-thymeleaf/src/main/resources/templates" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.monologue" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.monologue.config" />
+      <recent name="com.monologue.entity" />
+      <recent name="com.monologue.testshiro" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\Java\security\shiro\shiro-thymeleaf\src\main\resources\templates" />
+      <recent name="D:\Code\Java\security\shiro\shiro-thymeleaf\src\main\java\com\monologue\controller" />
+      <recent name="D:\Code\Java\security\shiro\shiro-thymeleaf\src\main\resources" />
+      <recent name="D:\Code\Java\security\shiro\shiro-thymeleaf\src\main\java\com\monologue" />
+      <recent name="D:\Code\Java\security\shiro\shiro-springboot-jsp\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ShiroThymeleafApplication">
+    <configuration name="SaltUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.monologue.utils.SaltUtils" />
+      <module name="shiro-springboot-jsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.monologue.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAuthenticator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.monologue.testshiro.TestAuthenticator" />
+      <module name="shiro-single" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.monologue.testshiro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCustomerMD5RealmAuthenticator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.monologue.testshiro.TestCustomerMD5RealmAuthenticator" />
+      <module name="shiro-single" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.monologue.testshiro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestShiroMD5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.monologue.testshiro.TestShiroMD5" />
+      <module name="shiro-single" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.monologue.testshiro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShiroSpringbootJspApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="shiro-springboot-jsp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.monologue.ShiroSpringbootJspApplication" />
+      <option name="WORKING_DIRECTORY" value="file://$ModuleFileDir$" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShiroThymeleafApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="shiro-thymeleaf" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.monologue.ShiroThymeleafApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestAuthenticator" />
+      <item itemvalue="Application.TestCustomerMD5RealmAuthenticator" />
+      <item itemvalue="Application.TestShiroMD5" />
+      <item itemvalue="Application.SaltUtils" />
+      <item itemvalue="Spring Boot.ShiroSpringbootJspApplication" />
+      <item itemvalue="Spring Boot.ShiroThymeleafApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SaltUtils" />
+        <item itemvalue="Application.TestCustomerMD5RealmAuthenticator" />
+        <item itemvalue="Application.TestShiroMD5" />
+        <item itemvalue="Application.TestAuthenticator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1ff0937-300f-4b40-8dc7-47d4edafcd97" name="Default Changelist" comment="" />
+      <created>1615081380352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615081380352</updated>
+      <workItem from="1615081385919" duration="11589000" />
+      <workItem from="1615097381709" duration="13694000" />
+      <workItem from="1615111144024" duration="14693000" />
+      <workItem from="1615129328749" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="90" width="1202" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615109464485">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="90" width="1202" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1615109464485" />
+    <state x="605" y="140" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1615098610726">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="605" y="140" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.864@0.0.1536.864" timestamp="1615098610726" />
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1615122335155">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1615122335155" />
+    <state x="433" y="314" width="670" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1615098100668">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="433" y="314" width="670" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1615098100668" />
+    <state x="605" y="190" key="FileChooserDialogImpl" timestamp="1615098591899">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="605" y="190" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1615098591899" />
+    <state width="1493" height="399" key="GridCell.Tab.0.bottom" timestamp="1615129301659">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1615129301659" />
+    <state width="1493" height="399" key="GridCell.Tab.0.center" timestamp="1615129301658">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1615129301658" />
+    <state width="1493" height="399" key="GridCell.Tab.0.left" timestamp="1615129301658">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1615129301658" />
+    <state width="1493" height="399" key="GridCell.Tab.0.right" timestamp="1615129301658">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1615129301658" />
+    <state width="1493" height="399" key="GridCell.Tab.1.bottom" timestamp="1615129301659">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1615129301659" />
+    <state width="1493" height="399" key="GridCell.Tab.1.center" timestamp="1615129301659">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1615129301659" />
+    <state width="1493" height="399" key="GridCell.Tab.1.left" timestamp="1615129301659">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1615129301659" />
+    <state width="1493" height="399" key="GridCell.Tab.1.right" timestamp="1615129301659">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="399" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1615129301659" />
+    <state x="453" y="139" key="RollbackChangesDialog" timestamp="1615119158896">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="453" y="139" key="RollbackChangesDialog/0.0.1536.864@0.0.1536.864" timestamp="1615119158896" />
+    <state x="490" y="173" width="540" height="524" key="StructurePopup" timestamp="1615082772983">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="490" y="173" width="540" height="524" key="StructurePopup/0.0.1536.864@0.0.1536.864" timestamp="1615082772983" />
+    <state x="543" y="267" width="449" height="325" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1615109830006">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="543" y="267" width="449" height="325" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.864@0.0.1536.864" timestamp="1615109830006" />
+    <state x="559" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615104000605">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="559" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1615104000605" />
+    <state x="394" y="99" key="new project wizard" timestamp="1615125035844">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="394" y="99" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1615125035844" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1615126686262">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1615126686262" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/monologue/testshiro/TestAuthenticator.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
