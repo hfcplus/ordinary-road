@@ -79,3 +79,95 @@
   ```
 
   >手动排除D_1.jar,所有自会调用D_2.jar包中的Student类
+
+# Maven 高级
+
+## 继承
+
+继承夫项目的依赖，插件
+
+
+
+## 聚合
+
+clean，compile,package..... 父项目时，会根据父项目聚合子项目的顺序依次执行命名
+
+## 多模块的最佳化
+
+父项目的pom文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>plus.hf</groupId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--聚合-->
+    <modules>
+        <!--子模板的相对路径-->
+        <module>../son1</module>
+        <module>../son2</module>
+    </modules>
+
+    <properties>
+        <junit.version>4.13</junit.version>
+        <mysql.version>8.0.29</mysql.version>
+    </properties>
+
+    <!--dependencyManagement管理依赖，只声明依赖-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
+```
+
+子项目的pom文件:只引用自己想要的依赖
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>plus.hf</groupId>
+    <artifactId>son2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>plus.hf</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
+```
+
+dependencyManagement标签的作用就是子项目可以不引用父项目的所有依赖

@@ -10,6 +10,8 @@ act_ru_task：任务表
 
  act_hi_comment：任务评论和事件记录表（由type决定，"event"：事件的记录，"comment"：流程的评论数据）
 
+BPMN2.0
+
 # 1.创建任务
 
 ```java

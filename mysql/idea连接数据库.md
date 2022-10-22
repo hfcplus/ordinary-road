@@ -12,7 +12,7 @@ server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimez
 >
 >在MySQL的命令模式下，输入：
 >
->``set global time_zone=’+8:00’;``
+>``set global time_zone='+8:00';``
 
  
 

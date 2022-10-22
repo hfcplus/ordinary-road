@@ -1,6 +1,6 @@
 http://www.redis-doc.com/
 
-# 下载安装配置redis
+# windows下载安装配置redis
 
 1. **下载地址：**https://github.com/tporadowski/redis/releases
 
@@ -8,6 +8,95 @@ http://www.redis-doc.com/
 
    > * 系统变量path 添加 redis的安装路径
    > * D:\redis\Redis-x64-5.0.10
+
+# Centos安装配置redis
+
+1. 下载地址 ：http://download.redis.io/releases/
+
+2. 安装redis
+
+   >下载到：/usr/tools/redis/
+   >
+   >解压到：/usr/tools/redis/redis-6.2.6
+   >
+   >1. 安装gcc依赖
+   >
+   >  由于 redis 是用 C 语言开发，安装之前必先确认是否安装 gcc 环境（gcc -v），如果没有安装，执行以下命令进行安装
+   >
+   >  ```linux
+   >  yum install -y gcc 
+   >  ```
+   >
+   >2. 进入redis-6.2.6,然后make编译
+   >
+   >  ```linux
+   >  [root@localhost redis]# cd redis-6.2.6/
+   >  [root@localhost redis-6.2.6]# make
+   >  ```
+   >
+   >3. 安装到指定目录 redis-6.2.6
+   >
+   >  ```linux
+   >  [root@localhost redis-6.2.6]# make install PREFIX=/usr/tools/redis/redis-6.2.6
+   >  ```
+   >
+   >4. 配置redis.conf，使其可以被远程连接
+   >
+   >  * #bind 127.0.0.1 -::1      解释：谁能连接redis，注释掉，谁都可以连
+   >  * protected-mode yes 保护模式改为no
+   >
+   >  >我们在redis的配置文件中会遇到protected-mode，它直译为保护模式。
+   >  >
+   >  >如果设置为yes，那么只允许我们在本机的回环连接，其他机器无法连接。
+   >  >
+   >  >**线上Redis服务**，为了安全，我们建议将protected-mode设置为yes。
+   >  >
+   >  >protected-mode设置为yes的情况下，为了我们的应用服务可以正常访问Redis，我们需要设置Redis的bind参数或者密码参数requirepass。
+   >
+   >5. 开机启动redis
+   >
+   >  * 修改/redis-6.2.6/utils/下的redis_init_script文件里的EXEC，CLIEXEC，CONF参数如下
+   >
+   >    ```
+   >    EXEC=/usr/tools/redis/redis-6.2.6/bin/redis-server
+   >    CLIEXEC=/usr/tools/redis/redis-6.2.6/bin/redis-cli
+   >    CONF="/usr/tools/redis/redis-6.2.6/bin/redis.conf"
+   >    ```
+   >
+   >  * 讲redis_init_script文件cp到/etc/init.d/下
+   >
+   >    ```linux
+   >    cp /usr/tools/redis/redis-6.2.6/utis/redis_init_script /etc/init.d/
+   >    ```
+   >
+   >  * 进入/etc/init.d/目录，修改 redis_init_script 文件名称为**redisd**
+   >
+   >    ```linux
+   >    [root@localhost utils]# cd /etc/init.d
+   >    [root@localhost init.d]# mv redis_init_script redisd
+   >    ```
+   >
+   >  *  把redis加入自启动服务
+   >
+   >    ```linux
+   >    chkconfig --add redisd
+   >    ```
+   >
+   >  * 开启redis开机自启服务
+   >
+   >    ```linux
+   >    chkconfig redisd on 
+   >    ```
+   >
+   >
+   >
+   >  * 下次电脑重启时就会自动启动redis
+
+# redis远程客户端
+
+Another Redis Desktop Manager
+
+下载地址：https://github.com/qishibo/AnotherRedisDesktopManager/releases
 
 # 启动redis
 

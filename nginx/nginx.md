@@ -1,4 +1,8 @@
-修改nginx.conf后需要重新加载nginx：`service nginx restart`
+修改nginx.conf后需要重新加载nginx：`service nginx restart` 	ubuntu: `nginx -s reload`
+
+测试nginx配置文件是否正确 `nginx -t -c /path/to/nginx.conf` 
+
+ngnix开启默认使用80端口
 
 # 反向代理与SSL
 
@@ -33,30 +37,15 @@ http {
     include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/vhost/*.conf;
 
+	#监听80端口，重定向到 443
     server {
         listen       80;
-        listen       [::]:80 default_server;
-        server_name  hfcplus.com;
-        rewrite ^/(.*)$ https://hfcplus.com:443/$1 permanent;
-        root         /usr/share/nginx/html;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-             proxy_pass http://localhost:8080;
-        }
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
+        server_name  hf.plus www.hf.plus www.hfcplus.com hfcplus.com;
+        rewrite ^/(.*)$ https://hf.plus:443/$1 permanent;
     }
 
 
+	// 监听443，配置ssl，重定向到8080
     server{
         #监听443端口
         listen 443;
