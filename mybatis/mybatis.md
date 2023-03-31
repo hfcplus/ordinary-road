@@ -95,7 +95,7 @@ useGeneratedKeys: 取出生成的主键
 keyProperty：将生成的主键赋值给属性，多个用,分割。在这里赋值给User的id
 
 ```xml
-<insert id="insertUserReturnId" parameterType="plus.hf.domain.User" useGeneratedKeys="true" keyProperty="id">
+<insert id="insertUserReturnId" parameterType="plus.hf.domain.User" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
     insert into u_user (phone, login_password, add_time) values (#{phone}, #{loginPassword}, #{addTime})
 </insert>
 ```

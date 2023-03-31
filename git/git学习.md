@@ -249,7 +249,7 @@
 >
 >    * 当修改的内容不重要时
 >
->      ```java
+>      ```tex
 >      git clean -n  //这个是清除文件预览
 >      git clean -f //强制清除文件
 >      ```
@@ -327,4 +327,32 @@ git push --force
 ```
 
 
+
+# git submodule 
+
+>
+
+# clone别人的项目然后push到自己的仓库中
+
+1. clone别人的项目
+
+2. 创建一个空的仓库，不能有任何东西
+
+3. 进入别人项目的目录中，git bansh here
+
+   * ``git remote add origin https://github.com/hfcplus/test.git``
+
+     >如果上面的语句出错：fatal: remote origin already exists
+     >则：git remote rm origin
+     >然后git remote add origin https://github.com/hfcplus/test.git
+
+   * ``git branch -M main``
+
+   * add, commit
+
+   * ``git push -u origin main``
+
+     
+
+   
 

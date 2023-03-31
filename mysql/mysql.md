@@ -253,5 +253,22 @@ show variables like '%autocommit%'; -- 查看变量状态
 
 ![img](mysql.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpX0ppYW5fSHVpXw==,size_16,color_FFFFFF,t_70.png)
 
-## 
+## 外连接，内连接
 
+join 默认为内连接：inner join
+
+left join 左外连接
+
+right join 右外连接
+
+full outer join 全外连接(mysql 没有这个关键字，可以通过union连接)
+
+## union 和 union all 的区别
+
+查询的字段相同
+
+union 会把查出的数据进行排序，然后删除跳相同的数据行在返回 (排序，去重)
+
+排序规则为从前往后比较字段，第一个字段不能比较出大小就往后比较另一个字段，直到比较不出大小，如果都相同就删除一条数据
+
+union all 会把查出的所有的数据连接在一起（不排序，不去重）
