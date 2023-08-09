@@ -15,19 +15,19 @@
 >```java
 >@Service
 >public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
->    @Autowired
->    UserMapper userMapper;
->    @Override
->    public List<User> selectUserForPage() {
->        PageHelper.startPage(1, 5); // 第一页的5行数据
->        List<User> users = userMapper.selectAll(); // 正常的sql没有写limit
->        PageInfo<User> pageInfo = new PageInfo<>(users);
->        long total = pageInfo.getTotal(); // 总行数
->        List<User> list = pageInfo.getList(); // 获取的数据
->        int pages = pageInfo.getPages(); // 总页数
->        int size = pageInfo.getSize(); // 当前页有几行数据
->        return users;
->    }
+>        @Autowired
+>        UserMapper userMapper;
+>        @Override
+>        public List<User> selectUserForPage() {
+>            PageHelper.startPage(1, 5); // 第一页的5行数据
+>            List<User> users = userMapper.selectAll(); // 正常的sql没有写limit
+>            PageInfo<User> pageInfo = new PageInfo<>(users);
+>            long total = pageInfo.getTotal(); // 总行数
+>            List<User> list = pageInfo.getList(); // 获取的数据
+>            int pages = pageInfo.getPages(); // 总页数
+>            int size = pageInfo.getSize(); // 当前页有几行数据
+>            return users;
+>        }
 >}
 >```
 

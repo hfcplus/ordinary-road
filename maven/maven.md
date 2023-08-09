@@ -17,13 +17,13 @@
 | install  |        生成jar包，并且将jar包保存到本地仓库        |
 |  deploy  | 最终的包复制到远程存储库以与其他开发人员和项目共享 |
 
-## 解决jar包冲突
+## jar包冲突
 
-### jar包冲突
+### jar包冲突原因
 
->在同一工程中引用了版本不同的依赖
+>在同一工程中引用了版本不同的依赖，导致产生`java.lang.ClassNotFoundException`异常，`java.lang.NoSuchMethodError`异常，`java.lang.NoClassDefFoundError`异常，`java.lang.LinkageError`异常等；
 
-### 解决方案 maven提供
+### maven引入jar包规则
 
 * 最短路径优先
 
@@ -51,6 +51,10 @@
   ```
 
   >因为B的声明在E的前面，所以会使用B中包含D_1.jar中的Student类
+
+如上图所示，maven会引入D_1.jar,不会引入D_2.jar，当E.jar中有使用D_2.jar中新增加的class时，因为D_2.jar未引入，只引入D_1.jar，D_1.jar因为版本原因并没新类时，就会抛出`ClassNotFoundException`异常
+
+## 解决方案
 
 * 手动排除指定jar包
 
@@ -84,7 +88,7 @@
 
 ## 继承
 
-继承夫项目的依赖，插件
+继承父项目的依赖，插件
 
 
 

@@ -25,12 +25,12 @@ for (int i : ints1) {
 
 ## 数组默认值
 
-| 数据类型 | 默认值 |
-| -------- | ------ |
-| int      | 0      |
-| double   | 0.0    |
-| char     | ' '    |
-| 对象     | null   |
+| 数据类型 | 默认值                |
+| -------- | --------------------- |
+| int      | 0                     |
+| double   | 0.0                   |
+| char     | 码值为0的字符'\u0000' |
+| 对象     | null                  |
 
 ## 数组扩容
 
@@ -40,7 +40,8 @@ for (int i : ints1) {
 
    ```java
    System.arraycopy(src, srcPos, dest, destPos, length);
-   // 把src从srcPos开始长度为length的元素复制到dest数组的destPos的位置上
+   // 把src（原数组）从srcPos（起始下标）开始长度为length的元素复制到dest（目标数组）数组的destPos（起始下标）的位置上
+   System.arraycopy(small, 3, big, 5, small.length-4);//把small数组从下标为3到最后的元素复制到big的下标为5的位置上
    ```
 
 3. 将原来的数组指向大数组
