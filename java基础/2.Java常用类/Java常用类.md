@@ -45,26 +45,32 @@ String 底层定义了 char[] value 来保存字符
 
 ## 常用方法
 
-|                 方法                 |                 解释                  |
-| :----------------------------------: | :-----------------------------------: |
-|        char charAt(int index)        |         返回下标为index的字符         |
-|             int length()             |           返回字符串的长度            |
-|      int compareTo(String str)       |          两个字符串比较大小           |
-| int compareToIgnoreCase(String str)  |          忽略大小写比较大小           |
-|     boolean contains(String str)     |               是否包含                |
-|    boolean startWith(String str)     |               以str开始               |
-|     boolean endWith(String str)      |               以str结尾               |
-|      boolean equals(String str)      |              值是否相等               |
-| boolean equalsIgnoreCase(String str) |      值是否相等（不区分大小写）       |
-|          byte[] getBytes();          |            转换为字节数组             |
-| byte[] getBytes(String charSetName); | 以charSetName为编码格式转换成字节数组 |
-|      String concat(String str)       |           返回原字符串+str            |
+|                        方法                         |                             解释                             |
+| :-------------------------------------------------: | :----------------------------------------------------------: |
+|               char charAt(int index)                |                    返回下标为index的字符                     |
+|                    int length()                     |                       返回字符串的长度                       |
+|              int compareTo(String str)              |                      两个字符串比较大小                      |
+|         int compareToIgnoreCase(String str)         |                      忽略大小写比较大小                      |
+|            boolean contains(String str)             |                           是否包含                           |
+|            boolean startWith(String str)            |                          以str开始                           |
+|             boolean endWith(String str)             |                          以str结尾                           |
+|             boolean equals(String str)              |                          值是否相等                          |
+|        boolean equalsIgnoreCase(String str)         |                  值是否相等（不区分大小写）                  |
+|                 byte[] getBytes();                  |                        转换为字节数组                        |
+|        byte[] getBytes(String charSetName);         |            以charSetName为编码格式转换成字节数组             |
+|              String concat(String str)              |                       返回原字符串+str                       |
+|                    String trim()                    |             返回一个新的字符串，去除头尾的空白符             |
+|                String toLowerCase()                 |                     字符串全部小写，返回                     |
+|                String toUpperCase()                 |                字符串全部大写，返回新的字符串                |
+|            boolean matches(String regex)            |            判断当前字符串是否匹配regex正则表达式             |
+| String replaceAll(String regex, String replacement) |        将符合正则的字符替换成新的字符并返回新的字符串        |
+|            String[] split(String regex)             | 把当前字符串使用符合regex正则表达式的字符串进行拆分 , 返回拆分后的字符串组成的数组 |
 
 **compareTo**
 
 ![09 字符串比较大小](Java%E5%B8%B8%E7%94%A8%E7%B1%BB.assets/09%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83%E5%A4%A7%E5%B0%8F.png)
 
-asdf
+
 
 # Date （反人类，能不用就不用）
 
@@ -144,16 +150,18 @@ LocalDateTime localDateTime2 = LocalDateTime.of(2022, 5, 1, 8, 28, 58, 222); // 
 
 ## 常用方法
 
-|         方法         |             解释             |
-| :------------------: | :--------------------------: |
-|    int getYear();    |            返回年            |
-|  Month get mouth();  | 返回枚举类Month （英文月份） |
-| int getMonthValue(); |         返回月份的值         |
-|  int getDayOfMonth   |           返回日子           |
-|     int getHour      |       小时（24小时制）       |
-|    int getMinute     |             分钟             |
-|    int getSecond     |              秒              |
-|     int getNano      |             纳秒             |
+|          方法          |             解释             |
+| :--------------------: | :--------------------------: |
+|     int getYear();     |            返回年            |
+|   Month get mouth();   | 返回枚举类Month （英文月份） |
+|  int getMonthValue();  |         返回月份的值         |
+|   int getDayOfMonth    |           返回日子           |
+|      int getHour       |       小时（24小时制）       |
+|     int getMinute      |             分钟             |
+|     int getSecond      |              秒              |
+|      int getNano       |             纳秒             |
+|  plusYears(long year)  |            加年份            |
+| plusMonths(long month) |            加月份            |
 
 
 
@@ -194,6 +202,19 @@ BigDecimal bigDecimal = new BigDecimal("321326546546543213213.123132156465");
 |                    subtract()                     |                              减                              |
 |                    multiply()                     |                              乘                              |
 | divide(BigDecimal b, int scale, int roundingMode) | 除//BigInteger相除结果为整数，BigDecimal相除结果可能为小数，除不尽时需要指定小数位数scale以及小数保留规则roundingMode：BigDecimal.ROUND_FLOOR... |
+
+# Math
+
+|              方法               |       解释        |
+| :-----------------------------: | :---------------: |
+|         double random()         | [0,1)之间的随机数 |
+|    double sqrt(dbouble num)     |    num的开平方    |
+|      double Math.cbrt(num)      |     num开立方     |
+| double pow(dbouble a, double b) |    a 的 b次方     |
+|              max()              |                   |
+|              min()              |                   |
+
+
 
 # 包装类
 
@@ -701,4 +722,3 @@ System.out.println(stringObjectMap.containsKey(mycar));  //true
 >// 使用lambda表达式简写
 > stringList.forEach(s -> System.out.println(s)); // 运用规则2，3
 >```
->
