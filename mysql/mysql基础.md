@@ -12,6 +12,12 @@ CREATE TABLE `student` (
 )
 ```
 
+## Mysql 执行顺序
+
+from ---- where ---- group by having ---- select ---- order by ---- limit 
+
+
+
 ## 增删改表结构
 
 为表增加字段 add
@@ -175,3 +181,12 @@ select *,ntile(2) OVER(order by number ) as row_num from num
 ```
 
 ![](mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.assets/1623029213-kgvvyl-6.png)
+
+## 子查询
+
+根据子查询的返回结果不同分为：
+
+* 标量子查询（查询结果位单个值）
+* 列子查询（查询结果位一列）
+* 行子查询（查询结果为一行）
+* 表子查询（查询结果为多列多行）

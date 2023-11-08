@@ -17,10 +17,16 @@ ALTER TABLE `table_name` ADD UNIQUE (
 ALTER TABLE `table_name` ADD INDEX index_name ( `column` )
 
 -- 4.添加FULLTEXT(全文索引)
-ALTER TABLE `table_name` ADD FULLTEXT ( `column`)
+ALTER TABLE `table_name` ADD FULLTEXT ( `column`);
 
 -- 5.添加多列索引
-ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` )
+ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` );
+
+-- 
+create [unique] [fulltext] index on tablename ('colum1' ,'column2','column3')
+
+
+drop index indexname from tablename
 ```
 
 
@@ -67,33 +73,36 @@ DATE_FORMAT(now() ,'%Y-%m-%d')
 
 >
 >
->MySQL中最常用的引擎
+>MySQL中早期默认的引擎
 >
 >特征：
 >
 >* 使用三个文件表示每个表
->  * 格式文件 — 存储表结构的定义（mytable.frm）
->  * 数据文件 — 存储表行的内容（mytable.MYD）
->  * 索引文件 — 存储表上索引（mytable.MYI）
+> * 格式文件 — 存储表结构的定义（mytable.sdi）
+> * 数据文件 — 存储表行的内容（mytable.MYD）
+> * 索引文件 — 存储表上索引（mytable.MYI）
 >*  灵活的AUTO_INCREMENT字段处理
 >*  可被转换为压缩、只读表来节省空间 
+>*  表锁
 
 ## **InnoDB存储引擎**
 
 >
 >
->MySQL中默认引擎
+>MySQL现在的默认引擎
 >
 >特征：
 >
->* 每个InnoDB表在数据库目录中以.frm格式文件表示
+>* 每个InnoDB表在数据库目录中以.ibd格式文件表示
 >* InnoDB表空间tablespace被用于存储表的内容
 >* 提供一组用来记录事务性活动的日志文件
 >* 用COMMIT(提交)、SAVEPOINT及ROLLBACK(回滚)**支持事务处理**
->*  提供全ACID兼容
+>*  提供全**ACID**兼容
 >* 在MySQL服务器崩溃后提供自动恢复
->* 多版本（MVCC）和行级锁定
->* 支持外键及引用的完整性，包括级联删除和更新
+>* 多版本（MVCC）和**行级锁**定
+>* 支持**外键**及引用的完整性，包括级联删除和更新
+>
+>![image-20231108201219599](assets/image-20231108201219599.png)
 
 ## **MEMORY存储引擎**
 
@@ -103,7 +112,7 @@ DATE_FORMAT(now() ,'%Y-%m-%d')
 >
 >特征：
 >
->*  在数据库目录内，每个表均以.frm格式的文件表示。
+>*  在数据库目录内，sdi格式的文件表示。存储表结构.
 >* 表数据及索引被存储在内存中。
 >* 表级锁机制。
 >* 不能包含TEXT或BLOB字段。
