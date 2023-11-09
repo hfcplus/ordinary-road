@@ -266,7 +266,7 @@ System.out.println( d1 == d2 );     //false
 
 ![Collection下的接口与继承类简易结构图](Java%E5%B8%B8%E7%94%A8%E7%B1%BB.assets/Collection%E4%B8%8B%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF%E7%B1%BB%E7%AE%80%E6%98%93%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 
-## Iterable(接口)
+## <a name='Iterable'>Iterable(接口)</a>
 
 |          方法          |  解释  |
 | :--------------------: | :----: |
@@ -280,9 +280,9 @@ System.out.println( d1 == d2 );     //false
 |       E next()        | 返回游标后面的元素,并且游标下移 |
 | default void remove() |   把刚刚next()返回的元素删除    |
 
+>
 
-
-## Colletion（接口）
+## <a name="collection">Colletion（接口）</a>
 
 ### 	创建Colletion集合
 
@@ -307,31 +307,38 @@ Collection<String> collection4 = new ArrayList<>(collection3);
 
 ### 	方法
 
-|                定义的方法                 |                            解释                             |
-| :---------------------------------------: | :---------------------------------------------------------: |
-|         Iterable接口中定义的方法          |                   全部继承，但是全未实现                    |
-|             boolean add(E e)              |                            添加                             |
-| boolean addAll(Collection<? extends E> c) |                          全部添加                           |
-|               void clear()                |                          全部删除                           |
-|        boolean contains(Object o)         |                          是否包含                           |
-|         boolean equals(Object o)          |                          是否相等                           |
-|             boolean isEmpty()             |                          是否为空                           |
-|         boolean remove(Object o)          |   从集合中删除第一个匹配的元素,成功返回true,失败返回false   |
-|    boolean removeAll(Collection<?> c)     | 删除与c中元素一致的所有元素（多个元素同一个值会被全部删除） |
-|    boolean retainAll(Collection<?> c)     |  保留和c中元素相同的所有元素(多个元素同一个值会被全部保留)  |
-|                int size()                 |                          返回个数                           |
-|          <T> T[] toArray(T[] a)           |          把集合元素复制到数组a中，并且返回一个数组          |
+|                    定义的方法                    |                            解释                             |
+| :----------------------------------------------: | :---------------------------------------------------------: |
+| <a href='#Iterable'>Iterable接口中定义的方法</a> |                   全部继承，但是全未实现                    |
+|                 boolean add(E e)                 |                            添加                             |
+|    boolean addAll(Collection<? extends E> c)     |                          全部添加                           |
+|                   void clear()                   |                          全部删除                           |
+|            boolean contains(Object o)            |                          是否包含                           |
+|             boolean equals(Object o)             |                          是否相等                           |
+|                boolean isEmpty()                 |                          是否为空                           |
+|             boolean remove(Object o)             |   从集合中删除第一个匹配的元素,成功返回true,失败返回false   |
+|        boolean removeAll(Collection<?> c)        | 删除与c中元素一致的所有元素（多个元素同一个值会被全部删除） |
+|        boolean retainAll(Collection<?> c)        |  保留和c中元素相同的所有元素(多个元素同一个值会被全部保留)  |
+|                    int size()                    |                          返回个数                           |
+|              <T> T[] toArray(T[] a)              |          把集合元素复制到数组a中，并且返回一个数组          |
 
 ### 	迭代
 
 ```java
 // 快捷键 itco
 // 使用请看Iterator 类的方法
+// 在迭代过程中,不能调用Collection集合的add()添加元素,也不能调用Collection集合的remove()删除元素。原因如下
+/**	
+	1.原集合增删改元素时会导致modCount +1
+	2.创建迭代器时会用用expectedModCount 记录 modCount，此时两个值相等
+	3.当原集合使用自身的方法修改元素时会导致 modCount+1 ， 从而expectedModCount  和 modCount不一致，报错
+	4.Iterator.remove()元素时，expectedModCount 更新为最新的 modCount， 保持一直，不报错
+*/
 ```
 
 
 
-## List (接口) 
+## <a name="List">List (接口) </a>
 
 ```java
 //1) List接口继承了Collection接口, Collection有的操作List集合都能继承到
@@ -343,31 +350,44 @@ List<String> stringList = new ArrayList<>();
 
 ### 	方法
 
-|                    方法                     |                             解释                             |
-| :-----------------------------------------: | :----------------------------------------------------------: |
-|       Collection接口中定义的所有方法        |                           全部继承                           |
-|       void add(int index, E element)        |                    在下标为index添加元素                     |
-|              E get(int index)               |                    获取下标为index的元素                     |
-|            int indexOf(Object o)            |                    该元素第一次出现的位置                    |
-|          int lastIndexOf(Object o)          |                   该元素最后一次出现的位置                   |
-|       ListIterator<E> listIterator()        |                     返回ListIterator对象                     |
-|             E remove(int index)             |   删除下标为index的元素，集合从i+1开始的元素的索引值都减1    |
-|         E set(int index, E element)         |                修改下标为index的元素为element                |
-|                 int size()                  |                           获取大小                           |
-| default void sort(Comparator<? super E> c)  |                             排序                             |
-| List<E> subList(int fromIndex, int toIndex) | 获取 [fromIndex, toIndex)的元素视图(操作subList返回的集合会影响到原集合) |
+|                           方法                           |                             解释                             |
+| :------------------------------------------------------: | :----------------------------------------------------------: |
+| <a href="#collection">Collection接口中定义的所有方法</a> |                           全部实现                           |
+|              void add(int index, E element)              |                    在下标为index添加元素                     |
+|                   E remove(int index)                    |   删除下标为index的元素，集合从i+1开始的元素的索引值都减1    |
+|                set(int index, E element)                 |               修改下下标为index的元素为element               |
+|                     E get(int index)                     |                    获取下标为index的元素                     |
+|                  int indexOf(Object o)                   |                    该元素第一次出现的位置                    |
+|                int lastIndexOf(Object o)                 |                   该元素最后一次出现的位置                   |
+|              ListIterator<E> listIterator()              |                     返回ListIterator对象                     |
+|               E set(int index, E element)                |                修改下标为index的元素为element                |
+|                        int size()                        |                           获取大小                           |
+|        default void sort(Comparator<? super E> c)        |                             排序                             |
+|       List<E> subList(int fromIndex, int toIndex)        | 获取 [fromIndex, toIndex)的元素视图(操作subList返回的集合会影响到原集合) |
+
+```java
+List<Integer> list = new ArrayList<>();
+list.add(456);
+list.add(789);
+list.add(123);
+list.add(56);
+list.add(46);
+list.add(585);
+//list.remove(123);//IndexOutOfBoundsException索引值越界异常
+list.remove(Integer.valueof(123)); // 删除成功
+```
 
 ### 	ListIterator(类)
 
-|         方法          |          解释          |
-| :-------------------: | :--------------------: |
-|     继承Iterator      | 继承Iterator的所有方法 |
-|     void add(E e)     |  在游标的位置添加元素  |
-| boolean hasPrevious() |   游标前面是否有元素   |
-|    int nextIndex()    |   返回后面元素的下标   |
-|     E previous()      |     游标前面的元素     |
-|  int previousIndex()  |     前面元素的下标     |
-|     void set(E e)     |          修改          |
+|                 方法                  |          解释          |
+| :-----------------------------------: | :--------------------: |
+| <a href ='#Iterable'>继承Iterator</a> | 继承Iterator的所有方法 |
+|             void add(E e)             |  在游标的位置添加元素  |
+|         boolean hasPrevious()         |   游标前面是否有元素   |
+|            int nextIndex()            |   返回后面元素的下标   |
+|             E previous()              |     游标前面的元素     |
+|          int previousIndex()          |     前面元素的下标     |
+|             void set(E e)             |          修改          |
 
 ### 	sort（排序）
 
@@ -390,7 +410,7 @@ List.sort(Comparator); // 形参Comparator是个接口，实参可以是匿名�
 >   Collections.sort(pokerList);
 >   ```
 >
->2.  创建比较器类，继承Comparator接口，实现compare()方法，其他类可以使用这个比较类来排序
+>2.  创建比较器类，实现Comparator接口，实现compare()方法，其他类可以使用这个比较类来排序
 >
 >   ```java
 >   static class PokerComparator implements Comparator<Poker> {
@@ -445,44 +465,56 @@ List.sort(Comparator); // 形参Comparator是个接口，实参可以是匿名�
 >   list.remove(Integer.valueOf(123)); // 删除value为123的Integer对象，不会删除下标为123的对象
 >   ```
 
+## ArrayList 和 Vector
+
+>ArrayList 和 Vector 底层的数据结构都是数组，初始容量都是10，ArrayList按1.5倍扩容，Vector按2倍扩容。Vector 线程安全，ArrayList线程不安全。
+
+|               方法               |         解释         |
+| :------------------------------: | :------------------: |
+| <a href="#List">实现List接口</a> | 实现了List的所有方法 |
+
+
+
 ## Queue（队列接口）
 
-|        方法        |             解释             |
-| :----------------: | :--------------------------: |
-| 继承Collection接口 |             ....             |
-|      offer(o)      |    把o元素添加到链表尾部     |
-|       poll()       | 把链表的第一个元素删除并返回 |
-|       peek()       |    返回第一个元素,不删除     |
+>队列：先进先出
+>
+>栈：先进后出
 
-## Deque（双端队列接口）
+|        方法        |                解释                |
+| :----------------: | :--------------------------------: |
+| 继承Collection接口 |                ....                |
+|      offer(o)      |    入队：把o元素添加到链表尾部     |
+|       poll()       | 出队：把链表的第一个元素删除并返回 |
+|       peek()       |       返回第一个元素,不删除        |
 
-|         方法          |                  解释                   |
-| :-------------------: | :-------------------------------------: |
-|     offerFirst()      |                                         |
-|      offerLast()      |                                         |
-|      pollFirst()      |                                         |
-|      pollLast()       |                                         |
-|      peekFirst()      |                                         |
-|      peekLast()       |                                         |
-|        push()         | 入栈, 把元素o添加到链表头部(第一个元素) |
-|         pop()         |  出栈, 就是把链表第一个元素删除并返回   |
-| (add,get,remove)First |                                         |
-| (add,get,remove)Last  |                                         |
+## <a name="Deque">Deque（双端队列接口）</a>
+
+|         方法          |                      解释                       |
+| :-------------------: | :---------------------------------------------: |
+|     offerFirst()      |                    addFirst                     |
+|      offerLast()      |                     addLast                     |
+|      pollFirst()      |                   removeFirst                   |
+|      pollLast()       |                   removeLast                    |
+|      peekFirst()      |                    getFirst                     |
+|      peekLast()       |                     getLast                     |
+|        push()         | 入栈, 把元素o添加到链表头部(第一个元素)addFirst |
+|         pop()         |   出栈, 就是把链表第一个元素删除并返回addLast   |
+| (add,get,remove)First |                                                 |
+| (add,get,remove)Last  |                                                 |
 
 ## LinkedList (双向链表)
 
-|           方法           | 解释 |
-| :----------------------: | :--: |
-| 实现了List接口的所有方法 | ...  |
-| 实现了Deque双端队列接口  |      |
+|                     方法                     | 解释 |
+| :------------------------------------------: | :--: |
+| <a href="#List">实现了List接口的所有方法</a> | ...  |
+| <a href="#Deque">实现了Deque双端队列接口</a> |      |
 
 ### 	注意
 
 >当LinkedList 为空时，调用(add,get,remove)First会报错，peek,poll,(peek,poll)First会返回null
 
-## ArrayList与Vector
 
-ArrayList与Vector底层数据结构都是数组; 数组的初始化容量: 10;     扩容: ArrayList按1.5倍大小扩容, Vector按2倍大小扩容; 区别在于Vector是线程安全的,ArrayList不是 线程安全的
 
 ## Set (接口 无序不重复)
 
@@ -503,7 +535,7 @@ System.out.println( hashSet.contains(stu) ); // false
 ```
 
 ```java
-// Student类了重写equals()/hashCode()方法，Student对象的哈希码就是对象在堆中的地址 ,  equals()方法默认使用==判断
+// Student类了重写equals()/hashCode()方法
 HashSet<Student> hashSet = new HashSet<>();
 hashSet.add(new Student("lisi", 24));
 Student stu =new Student("lisi", 24);
@@ -513,19 +545,21 @@ System.out.println( hashSet.contains(stu) ); //true. 在调用HashSet集合的co
 
 ### 注意
 
->1. 当集合中对象的属性值修改后,可能在集合中找不到这个元素了
+>1. 当HashSet集合中对象的属性值修改后,可能在集合中找不到这个元素了
 >
->   ```java
->   // Student类重写了equals()/hashcode()方法
->   HashSet<Student> hashSet = new HashSet<>();
->   Student stu = new Student("chenqi", 28);
->   hashSet.add( stu );
->   System.out.println( hashSet.contains(stu));     //true
->   stu.age = 66;
->   System.out.println( hashSet.contains(stu) );    //false
->   //在调用HashSet集合的contains(stu)方法时, 先根据stu对象的哈希码计算 存储位置i, 来到i位置查看是否存在equals相等的元素,
->   //修改了stu对象的属性值, 导致现在stu对象的哈希码与第18时添加时的哈希码不一样了, 现在计算出来的存储位置与第18时添加时的存储位置不一样
->   ```
+>  ```java
+>  // Student类重写了equals()/hashcode()方法
+>  HashSet<Student> hashSet = new HashSet<>();
+>  Student stu = new Student("chenqi", 28);
+>  hashSet.add( stu );
+>  System.out.println( hashSet.contains(stu));     //true
+>  stu.age = 66;
+>  System.out.println( hashSet.contains(stu) );    //false
+>  //在调用HashSet集合的contains(stu)方法时, 先根据stu对象的哈希码计算 存储位置i, 来到i位置查看是否存在equals相等的元素,
+>  //修改了stu对象的属性值, 导致现在stu对象的哈希码与第18时添加时的哈希码不一样了, 现在计算出来的存储位置与第18时添加时的存储位置不一样
+>  ```
+>
+>2. HashSet add,remove,contains 都是先比较hashcode，再比较equals
 
 ## TreeSet
 
@@ -545,13 +579,62 @@ TreeSet实现了SortedSet接口, 可以对集合中的元素自然排序, 要求
 2. 元素的类实现Comparable接口
 
    ```java
-   TreeSet<String> treeSet2 = new TreeSet<>(); // String字符串本身能够比较大小,实现Comparable接口.
+   TreeSet<Teacher> treeSet2 = new TreeSet<>(); // String字符串本身能够比较大小,实现Comparable接口.
+   class Teacher implements Comparable<Teacher>{
+       private Integer age;
+         @Override
+       public int compareTo(Teacher o) {
+           return this.age() - o.age();
+       }
+   }
    ```
 
+3. 像TreeSet添加元素时会比较大小，如果存在已经添加过的大小相等元素就添加失败
+
+   ```java
+   TreeSet<Student> treeSet1 = new TreeSet<>(new Comparator<Student>() {
+       @Override 
+       public int compare(Student o1, Student o2) {
+           return o2.age.compareTo(o1.age); // 倒序
+       }
+   });
+   treeSet1.add(new Student("hfc", 22)); //true
+   treeSet1.add(new Studnet("cty", 22)); // false
+   treeSet.contains(new Student("temp", 22));// true，只会比较Comparator，或Comparable中比较的字段
+   ```
+
+TreeSet 的add,remove,contains 都是和Comparator，或Comparable中字段比较
+
+## 集合之间的相互转换
+
+```java
+List<Student> students = new ArrayList<>();
+students.add(new Student("hfc", 22));
+students.add(new Student("cty", 23));
+students.add(new Student("temp", 22));
+System.out.println(students);
+List<Student> studentList = new LinkedList<>(students);   // ArrayList 转 LinkedList
+System.out.println(studentList);
+
+//TreeSet<Student> studentTreeSet = new TreeSet<>(students);// ArrayList 转 TreeSet (Student 需要实现Comparable接口)
+TreeSet<Student> studentTreeSet = new TreeSet<>(new Comparator<Student>() {
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.age - o2.age;
+    }
+});
+studentTreeSet.addAll(studentList); // LinkedList,ArrayList 转 TreeSet 的第二中方法
+System.out.println(studentTreeSet);
+Student[] studentArray = new Student[studentList.size()];
+studentList.toArray(studentArray);
+```
 
 
 
-## Collections类的方法
+
+
+
+# Collections类的方法
 
 在java.util包中定义Collections类, 该类提供一组操作集合的方法
 
@@ -560,35 +643,33 @@ TreeSet实现了SortedSet接口, 可以对集合中的元素自然排序, 要求
 | static <T> boolean **addAll**(Collection<? super T> c, T... elements) |            向集合c中添加若干数据             |
 | static <T> void **sort**(List<T> list, Comparator<? super T> c) |       对c集合排序,使用Comparator比较器       |
 | static <T extends Comparable<? super T>> void sort(List<T> list) | 对集合c排序, 要求集合中的元素本身具有 可比性 |
-|                                                              |                                              |
+|                  void shuffle<List<T> list>                  |                将list集合乱序                |
 |                                                              |                                              |
 |                                                              |                                              |
 |                                                              |                                              |
 
 
 
-# Map
+# <a name="Map">Map</a>
 
 ![Map继承](Java%E5%B8%B8%E7%94%A8%E7%B1%BB.assets/Map%E7%BB%A7%E6%89%BF.png)
 
 ### 	方法
 
-|                             方法                             |                       解释                        |
-| :----------------------------------------------------------: | :-----------------------------------------------: |
-|                         void clear()                         |                       清空                        |
-|               boolean containsKey(Object key)                |                    是否包含键                     |
-|             boolean containsValue(Object value)              |                    是否包含值                     |
-|                Set<Map.Entry<K,V>> entrySet()                |         获取所有的entry，entry就是键值对          |
-|                   boolean equals(Object o)                   |                                                   |
-| default void forEach(BiConsumer<? super K,? super V> action) |                                                   |
-|                      V get(Object key)                       |                                                   |
-|                      boolean isEmpty()                       |                                                   |
-|                       Set<K> keySet()                        |                   获取所有的key                   |
-|                    V put(K key, V value)                     | 如果key相同就覆盖并且返回旧的值，否则添加返回null |
-|                     V remove(Object key)                     |             通过键删除，并且返回value             |
-|              default V replace(K key, V value)               |                       修改                        |
-|                          int size()                          |                       大小                        |
-|                    Collection<V> values()                    |                     所有的值                      |
+|                方法                 |                       解释                        |
+| :---------------------------------: | :-----------------------------------------------: |
+|            void clear()             |                       清空                        |
+|   boolean containsKey(Object key)   |                    是否包含键                     |
+| boolean containsValue(Object value) |                    是否包含值                     |
+|   Set<Map.Entry<K,V>> entrySet()    |         获取所有的entry，entry就是键值对          |
+|        V put(K key, V value)        | 如果key相同就覆盖并且返回旧的值，否则添加返回null |
+|          V get(Object key)          |                                                   |
+|          boolean isEmpty()          |                                                   |
+|           Set<K> keySet()           |                   获取所有的key                   |
+|        V remove(Object key)         |             通过键删除，并且返回value             |
+|  default V replace(K key, V value)  |                       修改                        |
+|             int size()              |                       大小                        |
+|       Collection<V> values()        |                     所有的值                      |
 
 ### 注意
 
@@ -602,6 +683,77 @@ TreeSet实现了SortedSet接口, 可以对集合中的元素自然排序, 要求
 >    ```
 >
 > 3. keySet(), values(), entrySet()这些方法并没有创建新的集合,对它们进行操作时, 实际上是对map对应的数据操作
+
+## HashMap
+
+|              方法              |       解释        |
+| :----------------------------: | :---------------: |
+| <a href="#Map">实现Map接口</a> | 实现Map的所有方法 |
+
+
+
+>注意：HashMap的键是自定义类型, 修改键属性值后,导致键对象的哈希码变化了,从集合中找不到这个键了
+>
+>[HashMap扩容后，元素是如何重新分布的_hashmap扩容后位置变了么](https://blog.csdn.net/leisure_life/article/details/108489393)
+>
+>HashMap 不是线程安全的
+
+### put原理
+
+>* HashMap底层是哈希表, 哈希表是一个数组,数组的元素是链表,结合了数组与链表的优点
+>* 在put添加键值对时, 先根据key的哈希码经过hash函数计算hash值
+>* 根据hash值然后对数组容量取余得到下标
+>* 访问table[i]数组元素.
+>  * 如果该元素为null, 创建一个 新的结点保存到table[i]元素中
+>  * 如果该元素不为null, 遍历table[i]链表的每个结点
+>    * 如果有某个结点的key与当前的键equals相等,就使用新的value值替换原来的值
+>    * 如果链表中所有结点的key都不匹配, 就创建一个新的结点插入到链表的尾部（尾差，jdk1.7是头插）
+
+### get原理
+
+>* HashMap底层是哈希表, 哈希表是一个数组,数组的元素是链表,结合了数组与链表的优点
+>* 先根据key的哈希码经过hash函数计算hash值,
+>* 根据hash值然后对数组容量取余得到下标
+>* 访问table[i]数组元素.
+>  * 如果该元素为null,返回空
+>  * 如果该元素不为null, 遍历table[i]链表的每个结点
+>    * 如果有某个结点的key与当前的键equals相等,把该结点的Value值返回; 
+>    * 如果所有结点的key都不匹配, 返回null
+
+### 扩容原理
+
+>默认容量为16，当put的元素数量大于12（16 * 0.75）时，进行2倍扩容。以后每次元素数量大于（容量 * 0.75）时就进行2倍扩容
+>
+>扩容时会重新计算每个元素的hash值，然后对容量取余从而得到对应的地址，从而重新分配所有的元素的地址。
+
+### 红黑树
+
+>JDK1.8以后当HashMap单链表的元素数据大于8时就会转换成红黑树
+
+```java
+// Car类重写eqlues()和hashCode()方法
+Map<Car, Object> stringObjectMap = new HashMap<>();
+Car mycar = new Car("wahaha", 160);
+stringObjectMap.put(mycar, "hfc");
+System.out.println(stringObjectMap.containsKey(mycar));  // true
+mycar.price = 159;
+System.out.println(stringObjectMap.containsKey(mycar));  // false
+//向HashMap集合中put添加键值对时,根据键的哈希码计算存储位置;  调用containsKey(key)方法时,也是根据key键的哈希码计算存储位置;  修改了mycar对象的价格导致了mycar对象的哈希码发生了变化, 根据当前mycar对象的属性计算的哈希码与最开始添加时计算出来的哈希码不一样了. 出现了put添加时存储到i位置, 再第32行查找时来到x位置查找, 不存在
+mycar.price = 160;
+System.out.println(stringObjectMap.containsKey(mycar));  //true
+```
+
+## HashTable
+
+>初始容量 ：11
+>
+>扩容因子：0.75
+>
+>扩容大小：原容量 * 2 + 1
+>
+>线程安全
+>
+>键与值都不能为空
 
 ## Properties
 
@@ -667,23 +819,6 @@ String firstKey = treeMap2.firstKey();  //返回第一个键
 Map.Entry<String, Integer> firstEntry = treeMap2.firstEntry();  //返回第一个Entry
 treeMap2.pollFirstEntry();  //删除第一个
 treeMap2.pollLastEntry();   //删除最后一个
-```
-
-## HashMap
-
-注意：HashMap的键是自定义类型, 修改键属性值后,导致键对象的哈希码变化了,从集合中找不到这个键了
-
-```java
-// Car类重写eqlues()和hashCode()方法
-Map<Car, Object> stringObjectMap = new HashMap<>();
-Car mycar = new Car("wahaha", 160);
-stringObjectMap.put(mycar, "hfc");
-System.out.println(stringObjectMap.containsKey(mycar));  // true
-mycar.price = 159;
-System.out.println(stringObjectMap.containsKey(mycar));  // false
-//向HashMap集合中put添加键值对时,根据键的哈希码计算存储位置;  调用containsKey(key)方法时,也是根据key键的哈希码计算存储位置;  修改了mycar对象的价格导致了mycar对象的哈希码发生了变化, 根据当前mycar对象的属性计算的哈希码与最开始添加时计算出来的哈希码不一样了. 出现了put添加时存储到i位置, 再第32行查找时来到x位置查找, 不存在
-mycar.price = 160;
-System.out.println(stringObjectMap.containsKey(mycar));  //true
 ```
 
 
