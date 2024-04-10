@@ -94,7 +94,7 @@ sum(nums);
 | Arrays.copyOfRange(array, start, end) |            将旧的数组 [start, end) 复制给新的数组            |
 |          Arrays.sort(array)           |                      将数组从小到大排序                      |
 |    Arrays.binarySearch(array, key)    |  二分查找key，找到返回第一次找到的下标，没找到返回小于0的数  |
-|         Arrays.asList(T...a)          | 可以把若干数据转换为List集合, 方法形参是变长参数, 可以接收任意个数据,也可以接收一个数组 |
+|         Arrays.asList(T...a)          | 可以把若干数据转换为List集合, 方法形参是变长参数, 可以接收任意个数据,也可以接收一个数组。也可以接受一个数组 |
 
 
 
@@ -152,9 +152,14 @@ sum(nums);
    ```java
    List<Integer> integerList = Arrays.asList(32, 45, 56, 786, 89, 90);
    Integer[] array = {32, 401, 12};
+   //注意, asList()方法返回的List集合不支持add()添加或者 remove()删除
+   //integers.add(1);  //UnsupportedOperationException
    List<Integer> integers = Arrays.asList(array);
+   // Arrays.asList() 返回了一个匿名内部类ArrayList,这个ArrayList不是java.util.ArrayList,没有设计add(),remove
+   integers.set(0, 50); // 修改操作会修改原来的数组 array
+   array[1] = 500; // 修改array也会修改list
    ```
-
+   
    
 
 # 二维数组（too easy to write）
