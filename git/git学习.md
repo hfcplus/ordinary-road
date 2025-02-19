@@ -210,76 +210,87 @@
 >    ```java
 >    fatal: The current(现在的) branch test2 has no upstream branch.
 >    To push the current branch and set the remote(远程) as upstream, use
-> <<<<<<< HEAD
->
-> =======
-> <<<<<<< HEAD
->
-> =======
->
-> >>>>>> dev
-> >>>>>> 1722b941e1fc91d371f63ee25fe77cd043dc0927
->        git push --set-upstream origin test2
->    
->    ```
->
->    解决办法	
->
->    ```java
 >     git push --set-upstream origin test2
->     git push -u origin test2  
->    ```
->
+>   ```
 > 
+>       解决办法	
 >
-> 2. 修改文件未提交直接切换分支
->
->    ```JAVA
+>    ```bash
+>   git push --set-upstream origin test2
+>    git push -u origin test2  
+>    ```
+> 
+>       
+> 
+>2. 修改文件未提交直接切换分支
+> 
+>   ```JAVA
 >    error: Your local changes to the following files would be overwritten by checkout:
 >    ```
->
+> 
 >    解决办法
 >
 >    * 当修改的内容比较重要时
 >
 >      ```java
->      git add .
+>     git add .
 >      git commite -m "asdfasdf"
 >      ```
->
->    * 当修改的内容不重要时
->
->      ```tex
+> 
+>   * 当修改的内容不重要时
+> 
+>     ```tex
 >      git clean -n  //这个是清除文件预览
->      git clean -f //强制清除文件
+>     git clean -f //强制清除文件
 >      ```
->
+> 
 > 3. push产生冲突（conflict）
->
->    解决办法
->
->    * git pull 拉取项目  ，会提示那个文件产生冲突
+> 
+>   解决办法
+> 
+>   * git pull 拉取项目  ，会提示那个文件产生冲突
 >    * 进入该文件，修改冲突的地方
->
+> 
 > 
 
+# 8.Merge
+
+git merge branchname
+
+```bash
+git merge dev02
+把dev02分支合并到现在的分支上
+```
+
+merge冲突
+
+> 冲突：
+>
+> ![image-20250219211111586](assets/image-20250219211111586.png)
+>
+> 解决：
+>
+> * 直接编辑有冲突的内容，把```<<<<<<< HEAD```, ```=======``` ,```>>>>>>> dev02```删除，然后留下想要的内容
+> * git add .
+> * git commit
 
 
-# 8.基本操作
 
-| 描述                                           | 操作                             |
-| ---------------------------------------------- | -------------------------------- |
-| 新建工作区                                     | git init    或者 git clone + url |
-| 查看文件状态                                   | git status                       |
-| 添加文件到暂存区（Stage/Index）                | git add .                        |
-| 提交暂存区文件到本地仓库（Repository/History） | git commit -m "新建hello.txt"    |
-| 添加文件到远程仓库（Remote）                   | git push                         |
-|                                                |                                  |
-|                                                |                                  |
-|                                                |                                  |
-|                                                |                                  |
+# 9.基本操作
 
-# 9.撤回add
+| 描述                                           | 操作                                                         |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| 新建工作区                                     | git init    或者 git clone + url                             |
+| 查看文件状态                                   | git status                                                   |
+| 添加文件到暂存区（Stage/Index）                | git add .                                                    |
+| 提交暂存区文件到本地仓库（Repository/History） | git commit -m "新建hello.txt"                                |
+| 添加文件到远程仓库（Remote）                   | git push                                                     |
+| 拉取远端最新分支,不合并                        | git fetch [branchname] 没有branchname 拉所有分支             |
+| 拉取远端最新分支兵合并                         | git pull [branchname]   没有branchname 拉所有分支，并合并所有分支 |
+|                                                |                                                              |
+|                                                |                                                              |
+
+# 10.撤回add
 
 ```git
 git add * #将所有的文件提交到暂存区
@@ -293,7 +304,7 @@ git reset HEAD XXX/XXX/XXX.java
 
 
 
-# 10.撤回修改commit
+# 11.撤回修改commit
 
 ```git
 git add * #提交所有改变新增的文件到暂存区
@@ -312,7 +323,7 @@ git reset --mixed HEAD~1
 git reset --hard HEAD~1
 ```
 
-# 11.撤回push
+# 12.撤回push
 
 ```git
 git add .
@@ -345,14 +356,24 @@ git push --force
      >如果上面的语句出错：fatal: remote origin already exists
      >则：git remote rm origin
      >然后git remote add origin https://github.com/hfcplus/test.git
+     >
+     >origin ：远端仓库默认名称
 
-   * ``git branch -M main``
+   * ``git branch -M main``  把当前分支重命名为main
 
    * add, commit
 
    * ``git push -u origin main``
 
+     > 同：``git push -u origin main:main``
+     >
+     > -u 或者 --set-upstream  设置或更新上游分支。这意味着在以后执行 `git pull` 或 `git push` 时，无需再指定远程仓库和分支名称，Git 会自动关联到这个上游分支
+     >
+     > 1. 将本地的 `main` 分支推送到远程仓库的 `main` 分支。
+     > 2. 同时设置本地 `main` 分支与远程 `origin/main` 分支的关联关系
      
-
+     
+     
+   
    
 
