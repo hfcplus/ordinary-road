@@ -34,8 +34,7 @@
 > **查看配置信息**
 >
 > ```lava
-> $ git config --list
-> http.postbuffer=2M
+> $ git config --list                            http.postbuffer=2M
 > user.name=runoob
 > user.email=test@runoob.com
 > ```
@@ -214,43 +213,44 @@
 >   ```
 > 
 >       解决办法	
->
+> 
 >    ```bash
 >   git push --set-upstream origin test2
 >    git push -u origin test2  
->    ```
+>   ```
+>
 > 
->       
-> 
->2. 修改文件未提交直接切换分支
-> 
+>
+> 2. 修改文件未提交直接切换分支
+>
 >   ```JAVA
 >    error: Your local changes to the following files would be overwritten by checkout:
->    ```
-> 
+>   ```
+>
 >    解决办法
 >
 >    * 当修改的内容比较重要时
 >
 >      ```java
+>
 >     git add .
 >      git commite -m "asdfasdf"
 >      ```
-> 
+>
 >   * 当修改的内容不重要时
-> 
+>
 >     ```tex
 >      git clean -n  //这个是清除文件预览
 >     git clean -f //强制清除文件
->      ```
-> 
+>     ```
+>
 > 3. push产生冲突（conflict）
-> 
+>
 >   解决办法
-> 
+>
 >   * git pull 拉取项目  ，会提示那个文件产生冲突
 >    * 进入该文件，修改冲突的地方
-> 
+>
 > 
 
 # 8.Merge
